@@ -4,9 +4,15 @@ let io;
 
 const initSocket = (server) => {
   io = socketIO(server, {
-    cors: {
-      origin: "*",
-    },
+  cors: {
+    origin: [
+      'http://localhost:3000',
+      'http://localhost:5173',
+      'https://amanmukri03.github.io'
+    ],
+    methods: ["GET", "POST","PUT","DELETE"],
+    credentials: true
+  },
   });
 
   io.on("connection", (socket) => {

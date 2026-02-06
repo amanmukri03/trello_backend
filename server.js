@@ -20,7 +20,14 @@ const server = http.createServer(app);
 initSocket(server);
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'http://localhost:5173', 
+    'https://amanmukri03.github.io'
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes
